@@ -16,3 +16,7 @@ class DBStorage:
         engine = create_engine("mysql+mysqldb://{}:\
                 {}@{}:{}".format(user, password, host, \
                 database), pool_pre_ping=True)
+
+    def close(self):
+        """call remove() method on the private session attribute"""
+        self.__session.remove()
